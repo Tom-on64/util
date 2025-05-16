@@ -1,0 +1,10 @@
+*.o
+*.elf
+*.bin
+bin
+
+*.swp
+*.swo
+/.vscode
+/.clangd
+/.cache
