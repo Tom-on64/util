@@ -1,5 +1,47 @@
-My Coreutils
-============
+util.
+=====
 
-I felt like writing my own version of GNU's coreutils :)
+I felt like GNU's coreutils are too bloated so i'm making my own.
+This might also be an implementation for kern. (https://github.com/Tom-on64/kern)
+
+Implemented
+-----------
+* cat
+* ls
+
+TODO
+----
+* b2sum
+* base32
+* base64
+* basenc
+* chgrp
+* chmod
+* chown
+* cksum
+* comm
+* cut
+* cp
+* dd
+* df
+* expand
+* fmt
+* fold
+* head
+* install
+* join
+* ln
+* md5sum
+* mkdir
+* mkfifo
+* mknod
+* mktemp
+* mv
+* nl
+* od
+* rm
+* rmdir
+* shred
+* touch
+* trunc
 
