@@ -1,47 +1,28 @@
 util.
 =====
 
-I felt like GNU's coreutils are too bloated so i'm making my own.
+I felt like GNU's coreutils are too bloated so I'm making my own.
 This might also be an implementation for kern. (https://github.com/Tom-on64/kern)
 
 Implemented
 -----------
-* cat
-* ls
 
 TODO
 ----
-* b2sum
-* base32
-* base64
-* basenc
-* chgrp
-* chmod
-* chown
-* cksum
-* comm
-* cut
-* cp
-* dd
-* df
-* expand
-* fmt
-* fold
-* head
-* install
-* join
-* ln
-* md5sum
-* mkdir
-* mkfifo
-* mknod
-* mktemp
-* mv
-* nl
-* od
-* rm
-* rmdir
-* shred
-* touch
-* trunc
+* chgrp - Change file owner group
+* chown - Change file owner user
+* chmod - Change file permissions
+* cp - Copy files
+* dd - Copy and convert file data
+* df - File system report
+* ln - Create a link to a file
+* ls - List files
+* mkdir - Create a directory
+* mv - Move and rename files
+* rm - Delete files
+* rmdir - Delete empty directories
+* shred - Completly delete and zero out a file
+* sync - Flush filesystems
+* touch - Change file timestamps, create file if it doesn't exist
+
 

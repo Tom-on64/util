@@ -1,5 +1,7 @@
+VERSION = "0.0.1"
+
 CC = cc
-CCFLAGS = -Wall -Wextra
+CCFLAGS = -Wall -Wextra -Wpedantic -Os
 
 PREFIX ?= /usr/local
 DESTDIR ?= /bin
@@ -14,7 +16,7 @@ BINS = $(patsubst $(SRC)/%.c,$(BIN)/%,$(SRCS))
 all: $(BINS)
 $(BIN)/%: $(SRC)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CCFLAGS) -o $@ $<
+	$(CC) $(CCFLAGS) -DVERSION='$(VERSION)' -o $@ $<
 
 clean:
 	rm -fr $(BIN)
