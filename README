@@ -1,28 +1,32 @@
 util.
 =====
 
-I felt like GNU's coreutils are too bloated so I'm making my own.
+I felt like GNU's coreutils are too bloated, so I'm making my own.
 This might also be an implementation for kern. (https://github.com/Tom-on64/kern)
 
-Implemented
------------
+Coding style
+------------
+Here are some basic things that most of the code should follow.
 
-TODO
-----
-* chgrp - Change file owner group
-* chown - Change file owner user
-* chmod - Change file permissions
-* cp - Copy files
-* dd - Copy and convert file data
-* df - File system report
-* ln - Create a link to a file
-* ls - List files
-* mkdir - Create a directory
-* mv - Move and rename files
-* rm - Delete files
-* rmdir - Delete empty directories
-* shred - Completly delete and zero out a file
-* sync - Flush filesystems
-* touch - Change file timestamps, create file if it doesn't exist
+util.h helpers:
+* PROGRAM() macro - define the program name (char* __prog_name)
+* AUTHORS() macro - define the author(s) array (char* __authors[])
+* OPTIONS() macro - define the programs options (char* __optstring)
+* usage() function - print program usage
+* version() function - print program version
+* error() function - print an error and exit if stat != 0
 
+Usage message syntax:
+* Square brackets are optional
+* Angle brackets are required
+* A ellipsis (...) means more than one argument is possible
+* First is the program name
+* Then short boolean flags (ie. '[-abc]')
+* Next short argument flags (ie. '[-o <file>]')
+* After that long flags (ie. '[--color <color>]')
+* Lastly unnamed arguments (ie. <file...>)
+A full usage message example:
+	ls [-adhrt1] [-T <tabsize>] [--color] [--tabsize <tabsize>] [file...]
+
+_NOTE: long flags are currently unsupported :)_
 

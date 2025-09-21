@@ -38,7 +38,7 @@ int main(int argc, char** argv) {
 	while ((opt = getopt(argc, argv, __optstring)) != -1) {
 		switch (opt) {
 		case 'e': flags.escape = true; break;
-		case 'h': usage(); return 0;
+		case 'h': usage("[string...]"); return 0;
 		case 'n': flags.newline = false; break;
 		case 'v': version(); return 0;
 		}

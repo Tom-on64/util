@@ -18,15 +18,30 @@ extern const char* __prog_name;
 extern const char* __authors[];
 extern const char* __optstring;
 
-static inline void usage(void) {
-	printf("Usage: %s [-", __prog_name);
-	size_t optcount = strlen(__optstring);
-	for (size_t i = 0; i < optcount; i++) {
-		char c = __optstring[i];
-		if (c == ':') continue;
-		printf("%c", c);
+static inline void usage(char *ext) {
+	fprintf(stderr, "Usage: %s", __prog_name);
+
+	char group[64] = { 0 };
+	size_t gpos = 0;
+	for (int i = 0; __optstring[i] != '\0'; i++) {
+		char opt = __optstring[i];
+		if (opt == ':' || opt == '+' || opt == '-') continue;
+		if (__optstring[i + 1] == ':') continue;
+		if (gpos < sizeof(group)) group[gpos++] = opt;
 	}
-	printf("]\n");
+
+	if (gpos > 0) fprintf(stderr, " [-%s]", group);
+
+	for (int i = 0; __optstring[i] != '\0';	i++) {
+		char opt = __optstring[i];
+		if (opt == ':' || opt == '+' || opt == '-') continue;
+		if (__optstring[i + 1] == ':') {
+			if (__optstring[i + 2] == ':') fprintf(stderr, " [-%c [arg]]", opt);
+			else fprintf(stderr, " [-%c <arg>]", opt);
+		}
+	}
+
+	fprintf(stderr, " %s\n", ext);
 }
 
 static inline void version(void) {
